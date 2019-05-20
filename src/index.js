@@ -16,6 +16,7 @@ class Board extends React.Component {
       <Square
         value={this.props.squares[i]} // change to prop
         onClick={() => this.props.handleClick(i)} // change to prop
+        squares = {this.props.squares}
       />
     );
   }
@@ -26,7 +27,7 @@ class Board extends React.Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player: " + (this.prop.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.props.xIsNext ? "X" : "O");
     }
 
     return (
@@ -76,12 +77,12 @@ class Game extends React.Component {
     });
   }
 
-  // funciton that creates game history
+  // function that creates game history
   createGameHistory() {
     let table = [];
 
     for (let board of this.state.history) {
-      table.push(<li>board</li>);
+      table.push(<li>{board}</li>);
     }
 
     return table;
@@ -93,7 +94,7 @@ class Game extends React.Component {
         <div className="game-board">
           <Board
             squares={this.state.squares}
-            handleClick={this.handleClick()}
+            handleClick={this.handleClick}
             xIsNext={this.state.xIsNext}
           />
         </div>
