@@ -1,3 +1,4 @@
+[test](#available-scripts)
 Simple Tic Tac Toe game based on React tutorial
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
